@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Return Product</title>
+    <style>
+        .main {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        select, textarea, input[type="file"], input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="radio"], input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        input[type="reset"], input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="reset"]:hover, input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #B4B4B4;">
+    <header style="background-color: #232f3e; color: #ffffff; text-align: center; padding: 10px; display: flex; justify-content: space-between;">
+          <a href="basicWEBPAGE.html">
+              <img src="images/amazonLogo.png" alt="Amazon" style="width: 160px; height: 50px;">
+          </a>
+          <div class="auth-buttons" style="display: flex; align-items: center;">
+              <a href="signUP.html" style="background-color: transparent; color: #fff; border: 2px solid #fff; padding: 8px 16px; margin-left: 10px; text-decoration: none; border-radius: 5px; cursor: pointer;" onmouseover="this.style.backgroundColor='#f90'; this.style.border='2px solid #f90';" onmouseout="this.style.backgroundColor='transparent'; this.style.border='2px solid #fff';">Login</a>
+              <a href="signUP.html" style="background-color: #f90; color: #fff; padding: 10px 20px; border: none; text-decoration: none; border-radius: 5px; cursor: pointer; margin-right: 10px; margin-left: 10px;">Sign Up</a>
+          </div>
+      </header>
+      
+      <nav style="background-color: #333; overflow: hidden; display: flex; justify-content: space-between;">
+          <div>
+              <a href="#" style="float: left; color: #ffffff; text-align: center; padding: 14px 16px; text-decoration: none;" onmouseover="this.style.backgroundColor='#ddd'; this.style.color='black';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#fff';">Home</a>
+              <a href="#" style="float: left; color: #ffffff; text-align: center; padding: 14px 16px; text-decoration: none;" onmouseover="this.style.backgroundColor='#ddd'; this.style.color='black';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#fff';">Deals</a>
+              <a href="#" style="float: left; color: #ffffff; text-align: center; padding: 14px 16px; text-decoration: none;" onmouseover="this.style.backgroundColor='#ddd'; this.style.color='black';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#fff';">My Cart</a>
+          </div>
+          <div class="search-bar" style="text-align: center; align-self: center; color: #ffffff; text-align: center; padding: 14px 16px;">
+              <label for="Search" style="color: #ffffff;">Search</label>
+              <input type="text" id="Search" placeholder="Search for Products, Brands and More" name="Search" style="width: 400px; border-color: #ddd; border-radius: 8px;">
+          </div>
+          <div class="right" style="align-self: flex-end;">
+              <a href="#" style="float: left; color: #ffffff; text-align: center; padding: 14px 16px; text-decoration: none;" onmouseover="this.style.backgroundColor='#ddd'; this.style.color='black';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#fff';">Account Info</a>
+              <a href="my_orders.html" style="float: left; color: #ffffff; text-align: center; padding: 14px 16px; text-decoration: none;" onmouseover="this.style.backgroundColor='#ddd'; this.style.color='black';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#fff';">My Orders</a>
+              <a href="#" style="float: left; color: #ffffff; text-align: center; padding: 14px 16px; text-decoration: none;" onmouseover="this.style.backgroundColor='#ddd'; this.style.color='black';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#fff';">Contact Us</a>
+          </div>
+      </nav>
+
+
+<section class="main">
+    <form id="returnForm" onsubmit="return submitForm()">
+        <h2>Return Product</h2>
+        <label for="Product">Select the product</label>
+        <div>
+            <select name="myproduct" id="Product">
+                <option value="a" selected>Select</option>
+                <option value="One plus nord">One plus Nord 2 5G</option>
+                <option value="Lg fridge">LG Refrigerator</option>
+                <option value="Hp pendrive">Hp pendrive 3.1</option>
+                <option value="Titan watch">Titan Casual 364K5G watch for men</option>
+            </select>
+        </div>
+        <label for="Reason">Select the reason:</label>
+        <div>
+            <select name="myReason" id="Reason">
+                <option value="A" selected>Select</option>
+                <option value="1">Received Damaged product</option>
+                <option value="2">Poor Quality</option>
+                <option value="3">Received different color/size/model</option>
+                <option value="4">Other, please specify below</option>
+            </select>
+        </div>
+        <label for="description">Describe your reason to return product:</label>
+        <div>
+            <textarea name="mydescrition" id="description" cols="40" rows="10"></textarea>
+        </div>
+        <div>
+            What do you wish? <br>
+            <input type="radio" name="myaction" id="Refund">Refund
+            <input type="radio" name="myaction" id="Replace">Replace
+        </div>
+        <label for="Image">Upload the image file:</label>
+        <div>
+            <input type="file" name="myfile" id="Image">
+        </div>
+        <label for="Date">When should we schedule the pickup:</label>
+        <div>
+            <input type="date" name="mydate" id="Date">
+        </div>
+        <div>
+            <input type="checkbox" id="Policy">
+            <label for="Policy">I understand and agree to return Policy</label>
+        </div>
+        <label for="reset"></label>
+        <input type="reset" value="Reset now" id="reset">
+        &nbsp;&nbsp;&nbsp;
+        <label for="submit"></label>
+        <input type="submit" value="Submit now" id="submit">
+    </form>
+</section>
+
+    <script>
+        function submitForm() {
+            // Display a confirmation alert
+            var isConfirmed = confirm("Are you sure you want to submit the return request?");
+            
+            // If user clicks "OK" on the confirmation alert
+            if (isConfirmed) {
+                // Display a success message
+                alert("Return request submitted successfully!");
+                
+                // You can submit the form to the backend here if needed
+                // document.getElementById("returnForm").submit();
+            }
+
+            // Return false to prevent the form from actually submitting
+            return false;
+        }
+    </script>
+</body>
+</html>
