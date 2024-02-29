@@ -96,12 +96,13 @@
             totalRow.appendChild(totalAmountCell);
             billingTable.appendChild(totalRow);
         };
+
         var couponApplied = false;
 
         function applyCoupon() {
             if (!couponApplied) {
                 var couponInput = document.getElementById('coupon').value;
-                var totalAmountCell = document.getElementById('totalAmount');
+                var totalAmountCell = document.querySelector('#billing-table tr:last-child td:last-child');
                 var totalAmount = parseFloat(totalAmountCell.textContent.slice(1));
 
                 if (couponInput.toLowerCase().endsWith('strip30')) {
