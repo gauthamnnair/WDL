@@ -156,26 +156,5 @@
     </div>
     <a href="return.html" class="help-button">Return Product</a>
     </section>
-    <script>
-        // Function to store product details in local storage
-        function storeProductDetails() {
-            const products = document.querySelectorAll('.order');
-            const productList = [];
-            
-            products.forEach(product => {
-                const productName = product.querySelector('.product-details h3').textContent.trim();
-                const productCost = product.querySelector('.product-details p:nth-child(5)').textContent.trim();
-                
-                productList.push({ name: productName, cost: productCost });
-            });
-            
-            localStorage.setItem('productList', JSON.stringify(productList));
-        }
-        
-        // Call the function to store product details when the page loads
-        window.onload = function() {
-            storeProductDetails();
-        };
-    </script>
-</body>
+    </body>
 </html>
