@@ -50,9 +50,15 @@
             margin-left: 20px;
         }
 
-        .help-button {
-            display: block;
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            width: 80%; /* Adjust as needed */
             margin: 20px auto;
+        }
+
+        .button {
+            flex: 1;
             padding: 10px 20px;
             background-color: #4CAF50;
             color: #fff;
@@ -60,6 +66,7 @@
             border-radius: 5px;
             text-align: center;
             cursor: pointer;
+            margin: 0 10px; /* Adjust spacing between buttons */
         }
     </style>
 </head>
@@ -154,7 +161,10 @@
         </div>
         <img src="titan_watch.jpg" alt="Titan Casual 364K5G Watch" class="product-image">
     </div>
-    <a href="return.html" class="help-button">Return Product</a>
+    <div class="button-container">
+        <a href="return.html" class="button">Return Product</a>
+        <a href="billing.html" class="button">Billing</a>
+    </div>
     </section>
     </body>
 </html>
