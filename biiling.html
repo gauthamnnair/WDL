@@ -45,57 +45,51 @@
     <label for="coupon">Enter Coupon Code:</label>
     <input type="text" id="coupon" name="coupon">
     <button onclick="applyCoupon()">Apply Coupon</button>
-
-    <!-- GST selection -->
-    <label for="gst">Select GST Percentage:</label>
-    <select id="gst" name="gst">
-        <option value="5">5%</option>
-        <option value="10">10%</option>
-        <option value="15">15%</option>
-        <!-- Add more GST options as needed -->
-    </select>
     </section>
 
     <script>
         // JavaScript code to fetch product details and calculate the total cost
         window.onload = function() {
-            var products = [
-                { name: 'OnePlus Nord 2 5G', cost: 499.99 },
-                { name: 'LG Refrigerator', cost: 899.99 },
-                { name: 'HP Pendrive 3.1', cost: 29.99 },
-                { name: 'Titan Casual 364K5G Watch', cost: 149.99 }
-            ];
+        var products = [
+            { name: 'OnePlus Nord 2 5G', cost: 499.99 },
+            { name: 'LG Refrigerator', cost: 899.99 },
+            { name: 'HP Pendrive 3.1', cost: 29.99 },
+            { name: 'Titan Casual 364K5G Watch', cost: 149.99 }
+        ];
 
-            var totalAmount = 0;
-            var billingTable = document.getElementById('billing-table');
+        var totalAmount = 0;
+        var billingTable = document.getElementById('billing-table');
 
-            // Loop through products and create rows to display them
-            products.forEach(function(product) {
-                var row = document.createElement('tr');
-                var productNameCell = document.createElement('td');
-                var amountCell = document.createElement('td');
+        // Loop through products and create rows to display them
+        products.forEach(function(product) {
+            var row = document.createElement('tr');
+            var productNameCell = document.createElement('td');
+            var amountCell = document.createElement('td');
 
-                productNameCell.textContent = product.name;
-                amountCell.textContent = '$' + product.cost.toFixed(2);
-                totalAmount += product.cost;
+            productNameCell.textContent = product.name;
+            // Use toFixed to round off to 2 decimal places
+            amountCell.textContent = '$' + product.cost.toFixed(2);
+            totalAmount += product.cost;
 
-                row.appendChild(productNameCell);
-                row.appendChild(amountCell);
-                billingTable.appendChild(row);
-            });
+            row.appendChild(productNameCell);
+            row.appendChild(amountCell);
+            billingTable.appendChild(row);
+        });
 
-            // Create and append total row
-            var totalRow = document.createElement('tr');
-            var totalNameCell = document.createElement('td');
-            var totalAmountCell = document.createElement('td');
+        // Create and append total row
+        var totalRow = document.createElement('tr');
+        var totalNameCell = document.createElement('td');
+        var totalAmountCell = document.createElement('td');
 
-            totalNameCell.textContent = 'Total';
-            totalAmountCell.textContent = '$' + totalAmount.toFixed(2);
+        totalNameCell.textContent = 'Total';
+        // Use toFixed to round off total amount to 2 decimal places
+        totalAmountCell.textContent = '$' + totalAmount.toFixed(2);
 
-            totalRow.appendChild(totalNameCell);
-            totalRow.appendChild(totalAmountCell);
-            billingTable.appendChild(totalRow);
-        };
+        totalRow.appendChild(totalNameCell);
+        totalRow.appendChild(totalAmountCell);
+        billingTable.appendChild(totalRow);
+    };
+
 
         var couponApplied = false;
 
