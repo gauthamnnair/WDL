@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing</title>
+    <style>
+        /* Add your CSS styles here */
+        table {
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        td:nth-child(2) {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Header content if needed -->
+    </header>
+
+    <section class="billing-details">
+        <h1>Billing Details</h1>
+        <table id="billing-table">
+            <tr>
+                <th>Product Name</th>
+                <th>Amount</th>
+            </tr>
+        </table>
+    <label for="coupon">Enter Coupon Code:</label>
+    <input type="text" id="coupon" name="coupon">
+    <button onclick="applyCoupon()">Apply Coupon</button>
+
+    <!-- GST selection -->
+    <label for="gst">Select GST Percentage:</label>
+    <select id="gst" name="gst">
+        <option value="5">5%</option>
+        <option value="10">10%</option>
+        <option value="15">15%</option>
+        <!-- Add more GST options as needed -->
+    </select>
+    </section>
+
+    <script>
+        // JavaScript code to fetch product details and calculate the total cost
+        window.onload = function() {
+            var products = [
+                { name: 'OnePlus Nord 2 5G', cost: 499.99 },
+                { name: 'LG Refrigerator', cost: 899.99 },
+                { name: 'HP Pendrive 3.1', cost: 29.99 },
+                { name: 'Titan Casual 364K5G Watch', cost: 149.99 }
+            ];
+
+            var totalAmount = 0;
+            var billingTable = document.getElementById('billing-table');
+
+            // Loop through products and create rows to display them
+            products.forEach(function(product) {
+                var row = document.createElement('tr');
+                var productNameCell = document.createElement('td');
+                var amountCell = document.createElement('td');
+
+                productNameCell.textContent = product.name;
+                amountCell.textContent = '$' + product.cost.toFixed(2);
+                totalAmount += product.cost;
+
+                row.appendChild(productNameCell);
+                row.appendChild(amountCell);
+                billingTable.appendChild(row);
+            });
+
+            // Create and append total row
+            var totalRow = document.createElement('tr');
+            var totalNameCell = document.createElement('td');
+            var totalAmountCell = document.createElement('td');
+
+            totalNameCell.textContent = 'Total';
+            totalAmountCell.textContent = '$' + totalAmount.toFixed(2);
+
+            totalRow.appendChild(totalNameCell);
+            totalRow.appendChild(totalAmountCell);
+            billingTable.appendChild(totalRow);
+        };
+        var couponApplied = false;
+
+        function applyCoupon() {
+            if (!couponApplied) {
+                var couponInput = document.getElementById('coupon').value;
+                var totalAmountCell = document.getElementById('totalAmount');
+                var totalAmount = parseFloat(totalAmountCell.textContent.slice(1));
+
+                if (couponInput.toLowerCase().endsWith('strip30')) {
+                    // Apply 30% discount
+                    var discount = totalAmount * 0.3;
+                    totalAmount -= discount;
+                    // Update the total amount in the table
+                    totalAmountCell.textContent = '$' + totalAmount.toFixed(2);
+                    couponApplied = true; // Mark coupon as applied
+                    alert('Coupon applied successfully! 30% discount has been applied.');
+                } else {
+                    alert('Invalid coupon code!');
+                }
+            } else {
+                alert('Coupon already applied!');
+            }
+        }
+    </script>
+</body>
+</html>
+
