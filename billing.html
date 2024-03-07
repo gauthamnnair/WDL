@@ -130,7 +130,7 @@
                     var discount = totalAmount * 0.3;
                     totalAmount -= discount;
                     // Update the total amount in the table
-                    totalAmountCell.textContent = '$' + totalAmount.toFixed(2);
+                    totalAmountCell.textContent = '$' + totalAmount.toFixed(0);
                     couponApplied = true; // Mark coupon as applied
                     alert('Coupon applied successfully! 30% discount has been applied.');
                 } else {
