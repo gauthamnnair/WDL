@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Webpage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #B4B4B4;
+        }
+
+        header {
+            background-color: #232f3e;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+	        display: flex;
+	        justify-content:space-between;
+        }
+
+	header img {
+           width:160px;
+           height:50px;
+        }
+
+        nav {
+            background-color: #333;
+            overflow: hidden;
+	        display: flex;
+	        justify-content: space-between;
+
+        }
+
+        nav a {
+            float: left;
+            color: #ffffff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .search-bar {
+            text-align: center;
+	        align-self: center;
+            color: #ffffff;
+            text-align: center;
+            padding: 14px 16px;
+	   
+	   
+  
+        }
+
+        .main-content {
+            width: 80%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 40px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .image-section {
+            height: 50vh;
+            width: 100%;
+            background-image: url('images/amazon.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .right {
+		    align-self: flex-end;
+        }
+
+    .tile {
+        width: calc(33.33% - 20px); /* Adjust the width and margin as needed */
+        margin: 10px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        box-sizing: border-box;
+}
+    .tile img {
+        max-width: 100%; /* Ensure the image doesn't exceed its container */
+        max-height: auto; /* Ensure the image doesn't exceed its container */
+        object-fit: contain; /* Maintain aspect ratio and fit within the container */
+}
+	
+	input{
+		width:400px;
+		border-color:#ddd;
+		border-radius:8px;
+	}
+
+	.auth-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .sign-up-btn {
+            background-color: #f90; /* Change the color as desired */
+            color: #fff;
+            padding: 10px 20px;
+		    text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+	        margin-right:10px;
+	        margin-left:10px;
+        }
+
+        .login-btn {
+            background-color: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+		    text-decoration: none;
+            padding: 8px 16px;
+            margin-left: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+	   
+        }
+
+	.login-btn:hover {
+		background-color: #f90;
+		border: 2px solid #f90;
+	}
+
+	.showcase {
+    width: 100%; /* Change this to 80% to match the main content width */
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+    </style>
+</head>
+<body>
+
+<header>
+	<a href="MainPage.html">
+	<img src="images/amazonLogo.png" alt="Amazon"></a>
+	<div class="auth-buttons">
+	
+        <a href="signUP.html" class="login-btn">Login</a>
+	<a href="signUP.html" class="sign-up-btn">Sign Up</a>
+	<div>
+</header>
+
+<nav>
+    <div>
+    <a href="#">Home</a>
+    <a href="#">Deals</a>
+    <a href="#">My Cart</a>
+    </div>
+    <div class="search-bar">
+        <label for="Search">Search</label>
+  	<input type="text" id="Search" placeholder="Search for Products, Brands and More" name="Search">
+  
+    </div>
+
+  <div class="right" >
+        <a href="#">Account Info</a>
+        <a href="#">My Orders</a>
+        <a href="#">Contact Us</a>
+    </div>
+
+
+
+
+
+</nav>
+
+<div class="main-content">
+
+    <div class="image-section"></div>
+    <section class="showcase">
+    <div class="tile">
+        <h2>Gaming accessories</h2>
+     
+        <img src="images/cat1.jpg" alt="Category 1 Image">
+    </div>
+
+    <div class="tile">
+        <h2>New year, new supplies</h2>
+       
+        <img src="images/cat2.jpg" alt="Category 2 Image"> 
+    </div>
+
+    <div class="tile">
+        <h2>Deals in PCs</h2>
+     
+        <img src="images/cat3.jpg" alt="Category 3 Image"> 
+    </div>
+
+    <div class="tile">
+        <h2>Refresh your space</h2>
+     
+        <img src="images/cat4.jpg" alt="Category 1 Image">
+    </div>
+
+    <div class="tile">	
+        <h2>Handpicked music & audio</h2>
+       
+        <img src="images/cat5.jpg" alt="Category 2 Image"> 
+    </div>
+
+    <div class="tile">
+        <h2>Best in Sports & Outdoors</h2>
+     
+        <img src="images/cat6.jpg" alt="Category 3 Image"> 
+    </div>
+    </section>
+
+
+
+</div>
+
+<footer>
+    
+</footer>
+
+</body>
+</html>
