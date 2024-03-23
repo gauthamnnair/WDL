@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,14 +9,14 @@
         body {
             display: flex;
         }
-        
+
         .left-content {
             width: 25%;
             padding: 20px;
             display: flex;
             flex-direction: column;
         }
-        
+
         .image-controls {
             width: 25%;
             margin-right: 20px;
@@ -32,13 +33,14 @@
             height: auto;
             display: block;
             max-width: 200px;
-            margin-top: 20px; /* Reduce the max-width of the image */
-            transition: transform 0.5s ease-in-out; /* Animation transition */
+            margin-top: 20px;
+            /* Reduce the max-width of the image */
         }
 
         .content {
             width: 45%;
-            margin-top: 20px; /* Add margin to separate from image */
+            margin-top: 20px;
+            /* Add margin to separate from image */
         }
 
         .sidebar {
@@ -51,54 +53,72 @@
         .code-container {
             margin-top: 20px;
         }
-        
+
         .code-container table {
             width: 100%;
             border-collapse: collapse;
         }
-        
-        .code-container th, .code-container td {
+
+        .code-container th,
+        .code-container td {
             border: 1px solid black;
             padding: 8px;
         }
-        
+
         .other-content {
-            width: 30%; /* Width of the left side of the 30% compartment */
-            margin-top: 20px; /* Add margin to separate from image */
+            width: 30%;
+            /* Width of the left side of the 30% compartment */
+            margin-top: 20px;
+            /* Add margin to separate from image */
         }
 
         .other-content table {
             width: 100%;
             border-collapse: collapse;
         }
-        
-        .other-content th, {
-            /* border: 1px solid black;
+
+        .other-content th,
+        {
+        /* border: 1px solid black;
             padding: 8px; */
         }
     </style>
 </head>
-<body class="light-mode">
+
+<body>
     <div class="left-content">
         <div class="image-container">
-            <img src="images/yoyo/1.jpg" alt="Image not Found" class="current-image" onclick="nextImage()">
+            <img src="images/yoyo/a1.jpg" alt="Image not Found" class="current-image">
         </div>
         <div class="image-controls">
+            <button onclick="nextImage()">Next</button>
             <div class="other-content" style="text-align: left; margin-top: 50px; padding: 10px;">
                 <h3>Related Products:</h3>
                 <table style="border-collapse: separate; border-spacing: 20px;">
                     <tbody>
                         <tr>
-                            <td><img src="5.webp" alt="not found" style="max-width: 100px; max-height: 100px;"></td>
-                            <td><img src="6.jpg" alt="not found" style="max-width: 100px; max-height: 100px;"></td>
-                            <td><img src="7.jpg" alt="not found" style="max-width: 100px; max-height: 100px;"></td>
+                            <td><img src="images/yoyo/a5.webp" alt="not found" style="max-width: 100px; max-height: 100px;"></td>
+                            <td><img src="images/yoyo/a6.jpg" alt="not found" style="max-width: 100px; max-height: 100px;"></td>
+                            <td><img src="images/yoyo/a7.jpg" alt="not found" style="max-width: 100px; max-height: 100px;"></td>
+                            <td><img src="images/yoyo/a8.jpg" alt="not found" style="max-width: 100px; max-height: 100px;"></td>
+                            <td><img src="images/yoyo/a9.jpg" alt="not found" style="max-width: 120px; max-height: 150px;"></td>
                         </tr>
                         <tr>
-                            <td><p style="color: blue;">YOYO N11 ></p></td>
-                            <td><p style="color: blue;">YOYO C12</p></td>
-                            <td><p style="color: blue;">M@gic YOYO</p></td>
-                            <td><p style="color: blue;">H3H YOYO</p></td>
-                            <td><p style="color: blue;">YOYO spinner</p></td>
+                            <td>
+                                <p style="color: blue;">YOYO N11 ></p>
+                            </td>
+                            <td>
+                                <p style="color: blue;">YOYO C12</p>
+                            </td>
+                            <td>
+                                <p style="color: blue;">M@gic YOYO</p>
+                            </td>
+                            <td>
+                                <p style="color: blue;">H3H YOYO</p>
+                            </td>
+                            <td>
+                                <p style="color: blue;">YOYO spinner</p>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -108,23 +128,27 @@
     <div class="content">
         <h2>MAGICYOYO Professional Responsive Yoyo V3, Aluminum Yo Yo for Kids Beginner, Replacement Unresponsive Ball
             Bearing for Advanced Yoyo Players + Removal Bearing Tool + Bag + 5 Yoyo Strings</h2>
-            <p style="color: blue;">Brand Magic <br> Rating 4.2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | 8325 ratings </p>
-            <h4>About this item:</h4>
-            Metal yoyo V3 made from quality aluminium 6061 stable and balanced high speed routines. Super smooth sand blasting finish surface never fade and not easy to scratches.
+        <p style="color: blue;">Brand Magic <br> Rating 4.2 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
+            8325 ratings </p>
+        <h4>About this item:</h4>
+        Metal yoyo V3 made from quality aluminium 6061 stable and balanced high speed routines. Super smooth sand
+        blasting finish surface never fade and not easy to scratches.
     </div>
     <div class="sidebar">
         <div class="code-container">
-              <h2><p><span style="background-color: rgb(205, 228, 89);">Amazon</span></p></h2>
+            <h2>
+                <p><span style="background-color: rgb(205, 228, 89);">Amazon</span></p>
+            </h2>
             <p><span style="background-color: rgb(43, 17, 124); color: rgb(255, 255, 255);">Amazon's choice</span></p>
             <p><span style="color: red;">-63%</span> &nbsp; &nbsp; &nbsp; &#8377;<span
-                style="font-size: larger;">2799</span></p>
+                    style="font-size: larger;">2799</span></p>
             <p>MRP: <strike>&#8377;7499</strike></p>
             <label for="Buy"></label>
             <label for="Add"></label>
-        <div>
-            <input type="button" id="Buy" value="Buy now"> &nbsp;&nbsp;&nbsp;
-            <input type="button" id="Add" value="Add to cart">
-        </div><br>
+            <div>
+                <input type="button" id="Buy" value="Buy now"> &nbsp;&nbsp;&nbsp;
+                <input type="button" id="Add" value="Add to cart">
+            </div><br>
             <p>Inclusive of all taxes <br><strong>EMI </strong>starts at ₹136. No Cost EMI available</p>
             <h3>Technical Detail</h3>
             <table>
@@ -153,12 +177,10 @@
             </table>
         </div>
     </div>
-    <script src="jquery.js"></script>
-<script>
-    $(document).ready(function() {
-        const images = ["images/yoyo/1.jpg", "images/yoyo/2.jpg", "images/yoyo/3.jpg", "images/yoyo/4.jpg"];
+    <script>
+        const images = ["images/yoyo/a1.jpg", "images/yoyo/a2.jpg", "images/yoyo/a3.jpg", "images/yoyo/a4.jpg"];
         let currentImageIndex = 0;
-        const imageElement = $('.current-image');
+        const imageElement = document.querySelector('.current-image');
 
         function nextImage() {
             currentImageIndex = (currentImageIndex + 1) % images.length;
@@ -166,16 +188,10 @@
         }
 
         function updateImage() {
-            imageElement.fadeOut(200, function() {
-                $(this).attr('src', images[currentImageIndex]).fadeIn(200);
-            });
+            imageElement.src = images[currentImageIndex];
         }
+    </script>
 
-        $('.next-btn').on('click', nextImage);
-    });
-</script>
-
-    
 </body>
-</html>
 
+</html>
