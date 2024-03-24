@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing</title>
+    <style>
+        /* Add your CSS styles here */
+        table {
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        td:nth-child(2) {
+            text-align: right;
+        }
+    </style>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #B4B4B4;">
+      <header style="background-color: #232f3e; color: #ffffff; text-align: center; padding: 10px; display: flex; justify-content: space-between;">
+            <a href="home.html">
+                <img src="images/amazonLogo.png" alt="Amazon" style="width: 160px; height: 50px;">
+            </a>
+            <div class="auth-buttons" style="display: flex; align-items: center;">
+                <a href="signUP.html" style="background-color: transparent; color: #fff; border: 2px solid #fff; padding: 8px 16px; margin-left: 10px; text-decoration: none; border-radius: 5px; cursor: pointer;" onmouseover="this.style.backgroundColor='#f90'; this.style.border='2px solid #f90';" onmouseout="this.style.backgroundColor='transparent'; this.style.border='2px solid #fff';">Login</a>
+                <a href="signUP.html" style="background-color: #f90; color: #fff; padding: 10px 20px; border: none; text-decoration: none; border-radius: 5px; cursor: pointer; margin-right: 10px; margin-left: 10px;">Sign Up</a>
+            </div>
+        </header>
+        
+        <nav style="background-color: #333; overflow: hidden; display: flex; justify-content: space-between;">
+            <div>
+                <a href="basicWEBPAGE.html" style="float: left; color: #ffffff; text-align: center; padding: 14px 16px; text-decoration: none;" onmouseover="this.style.backgroundColor='#ddd'; this.style.color='black';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#fff';">Home</a>
+                <a href="#" style="float: left; color: #ffffff; text-align: center; padding: 14px 16px; text-decoration: none;" onmouseover="this.style.backgroundColor='#ddd'; this.style.color='black';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#fff';">Deals</a>
+                <a href="#" style="float: left; color: #ffffff; text-align: center; padding: 14px 16px; text-decoration: none;" onmouseover="this.style.backgroundColor='#ddd'; this.style.color='black';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#fff';">My Cart</a>
+            </div>
+           
+            <div class="right" style="align-self: flex-end;">
+                <a href="#" style="float: left; color: #ffffff; text-align: center; padding: 14px 16px; text-decoration: none;" onmouseover="this.style.backgroundColor='#ddd'; this.style.color='black';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#fff';">Account Info</a>
+                <a href="my_orders.html" style="float: left; color: #ffffff; text-align: center; padding: 14px 16px; text-decoration: none;" onmouseover="this.style.backgroundColor='#ddd'; this.style.color='black';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#fff';">My Orders</a>
+                <a href="#" style="float: left; color: #ffffff; text-align: center; padding: 14px 16px; text-decoration: none;" onmouseover="this.style.backgroundColor='#ddd'; this.style.color='black';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#fff';">Contact Us</a>
+            </div>
+        </nav>
+    <header>
+        <!-- Header content if needed -->
+    </header>
+
+    <section class="billing-details">
+        <h1>Billing Details</h1>
+        <table id="billing-table">
+            <tr>
+                <th>Product Name</th>
+                <th>Amount</th>
+            </tr>
+        </table>
+    <label for="coupon">Enter Coupon Code:</label>
+    <input type="text" id="coupon" name="coupon">
+    <button onclick="applyCoupon()">Apply Coupon</button>
+    </section>
+
+    <script>
+        // JavaScript code to fetch product details and calculate the total cost
+        window.onload = function() {
+        var products = [
+            { name: 'OnePlus Nord 2 5G', cost: 499.99 },
+            { name: 'LG Refrigerator', cost: 899.99 },
+            { name: 'HP Pendrive 3.1', cost: 29.99 },
+            { name: 'Titan Casual 364K5G Watch', cost: 149.99 }
+        ];
+
+        var totalAmount = 0;
+        var billingTable = document.getElementById('billing-table');
+
+        // Loop through products and create rows to display them
+        products.forEach(function(product) {
+            var row = document.createElement('tr');
+            var productNameCell = document.createElement('td');
+            var amountCell = document.createElement('td');
+
+            productNameCell.textContent = product.name;
+            // Use toFixed to round off to 2 decimal places
+            amountCell.textContent = '$' + product.cost.toFixed(2);
+            totalAmount += product.cost;
+
+            row.appendChild(productNameCell);
+            row.appendChild(amountCell);
+            billingTable.appendChild(row);
+        });
+
+        // Create and append total row
+        var totalRow = document.createElement('tr');
+        var totalNameCell = document.createElement('td');
+        var totalAmountCell = document.createElement('td');
+
+        totalNameCell.textContent = 'Total';
+        // Use toFixed to round off total amount to 2 decimal places
+        totalAmountCell.textContent = '$' + totalAmount.toFixed(2);
+
+        totalRow.appendChild(totalNameCell);
+        totalRow.appendChild(totalAmountCell);
+        billingTable.appendChild(totalRow);
+    };
+
+
+        var couponApplied = false;
+
+        function applyCoupon() {
+            if (!couponApplied) {
+                var couponInput = document.getElementById('coupon').value;
+                var totalAmountCell = document.querySelector('#billing-table tr:last-child td:last-child');
+                var totalAmount = parseFloat(totalAmountCell.textContent.slice(1));
+
+                if (couponInput.toLowerCase().endsWith('strip30')) {
+                    // Apply 30% discount
+                    var discount = totalAmount * 0.3;
+                    totalAmount -= discount;
+                    // Update the total amount in the table
+                    totalAmountCell.textContent = '$' + totalAmount.toFixed(0);
+                    couponApplied = true; // Mark coupon as applied
+                    alert('Coupon applied successfully! 30% discount has been applied.');
+                } else {
+                    alert('Invalid coupon code!');
+                }
+            } else {
+                alert('Coupon already applied!');
+            }
+        }
+    </script>
+</body>
+</html>
+
