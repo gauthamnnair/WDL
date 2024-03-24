@@ -69,6 +69,15 @@
             flex-wrap: wrap;
         }
 
+        .dark-mode .main-content {
+            width: 80%;
+            margin: 20px auto;
+            background-color: black;
+            padding: 40px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
         .image-section {
             height: 50vh;
             width: 100%;
@@ -172,7 +181,7 @@
             right: 10px;
             cursor: pointer;
             background-color: #fff;
-            padding: 10px;
+            padding: 20px 25px;
             border-radius: 50%;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
             z-index: 9999;
@@ -211,6 +220,12 @@
         .dark-mode nav a {
             color: #ffffff;
         }
+
+        .img-box{
+            width: 400px;
+            height: 200px;
+        }
+
     </style>
 </head>
 <body class="">
@@ -223,6 +238,7 @@
         <a href="signUP.html" class="login-btn">Login</a>
         <a href="signUP.html" class="sign-up-btn">Sign Up</a>
     </div>
+    
     
 </header>
 
@@ -258,32 +274,32 @@
     <section class="showcase">
         <div class="tile">
             <h2>Gaming accessories</h2>
-            <img src="images/cat1.jpg" alt="Category 1 Image">
+            <img class="img-box" src="images/cat1.jpg" alt="Category 1 Image">
         </div>
 
         <div class="tile">
             <h2>New year, new supplies</h2>
-            <img src="images/cat2.jpg" alt="Category 2 Image">
+            <img class="img-box" src="images/cat2.jpg" alt="Category 2 Image">
         </div>
 
         <div class="tile">
             <h2>Deals in PCs</h2>
-            <img src="images/cat3.jpg" alt="Category 3 Image">
+            <img class="img-box" src="images/cat3.jpg" alt="Category 3 Image">
         </div>
 
         <div class="tile">
             <h2>Refresh your space</h2>
-            <img src="images/cat4.jpg" alt="Category 1 Image">
+            <img class="img-box" src="images/cat4.jpg" alt="Category 1 Image">
         </div>
 
         <div class="tile">
             <h2>Handpicked music & audio</h2>
-            <img src="images/cat5.jpg" alt="Category 2 Image">
+            <img class="img-box" src="images/cat5.jpg" alt="Category 2 Image">
         </div>
 
         <div class="tile">
             <h2>Best Sellers in Sports & Outdoors</h2>
-            <img src="images/cat6.jpg" alt="Category 3 Image">
+            <img class="img-box" src="images/cat6.jpg" alt="Category 3 Image">
         </div>
     </section>
 
@@ -293,8 +309,8 @@
     
 </footer>
 <div class="dark-mode-toggle" id="dark-mode-toggle">
+
     <div class="moon"></div>
-    <div class="sun"></div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -323,9 +339,33 @@
         currentIndex = (currentIndex - 1 + images.length) % images.length;
         showSlide(currentIndex);
       });
-    });
 
-    $('#dark-mode-toggle').click(function () {
-        $('body').toggleClass('dark-mode');
+      // Check if dark mode preference is stored in local storage
+      var darkMode = localStorage.getItem('darkMode');
+
+      // If dark mode preference exists and is true, apply dark mode
+      if (darkMode === 'true') {
+          $('body').addClass('dark-mode');
+      }
+
+      // Dark mode toggle button click event
+      $('#dark-mode-toggle').click(function () {
+          // Toggle dark mode class on body
+          $('body').toggleClass('dark-mode');
+
+          // Update dark mode preference in local storage
+          var isDarkMode = $('body').hasClass('dark-mode');
+          localStorage.setItem('darkMode', isDarkMode);
+
+           // Additional jQuery function 1: Change text color of .tile elements
+        $('.tile').click(function() {
+            $(this).css('color', 'red');
+        });
+
+        // Additional jQuery function 2: Show alert on click of sign-up button
+        $('.sign-up-btn').click(function() {
+            alert('Sign-up button clicked!');
+        });
+      });
     });
     </script>
