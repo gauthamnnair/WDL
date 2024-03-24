@@ -139,23 +139,21 @@
     </form>
 </section>
 
-    <script>
-        function submitForm() {
-            // Display a confirmation alert
-            var isConfirmed = confirm("Are you sure you want to submit the return request?");
-            
-            // If user clicks "OK" on the confirmation alert
-            if (isConfirmed) {
-                // Display a success message
-                alert("Return request submitted successfully!");
-                
-                // You can submit the form to the backend here if needed
-                // document.getElementById("returnForm").submit();
-            }
-
-            // Return false to prevent the form from actually submitting
-            return false;
+<script>
+    function submitForm() {
+        // Display a confirmation alert
+        var isConfirmed = confirm("Are you sure you want to submit the return request?");
+        
+        // If user clicks "OK" on the confirmation alert
+        if (isConfirmed) {
+            // Submit the form to confirmation.php
+            document.getElementById("returnForm").action = "confirmation.php";
+            return true; // Allow the form to submit
         }
-    </script>
+
+        // If user clicks "Cancel" or dismisses the confirmation alert
+        return false; // Prevent the form from submitting
+    }
+</script>
 </body>
 </html>

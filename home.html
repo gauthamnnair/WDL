@@ -10,6 +10,12 @@
             margin: 0;
             padding: 0;
             background-color: #B4B4B4;
+            transition: background-color 0.3s ease;
+        }
+
+        .dark-mode body {
+            background-color: #333;
+            color: #fff;
         }
 
         header {
@@ -17,11 +23,11 @@
             color: #ffffff;
             text-align: center;
             padding: 10px;
-	    display: flex;
-	    justify-content:space-between;
+            display: flex;
+            justify-content: space-between;
         }
 
-	header img {
+        header img {
            width:160px;
            height:50px;
         }
@@ -29,14 +35,12 @@
         nav {
             background-color: #333;
             overflow: hidden;
-	    display: flex;
-	    justify-content: space-between;
-
+            display: flex;
+            justify-content: space-between;
         }
 
         nav a {
             float: left;
-            
             color: #ffffff;
             text-align: center;
             padding: 14px 16px;
@@ -50,13 +54,10 @@
 
         .search-bar {
             text-align: center;
-	     align-self: center;
+            align-self: center;
             color: #ffffff;
             text-align: center;
             padding: 14px 16px;
-	   
-	   
-  
         }
 
         .main-content {
@@ -71,159 +72,260 @@
         .image-section {
             height: 50vh;
             width: 100%;
-            background-image: url('images/amazon.jpg'); /* Replace with your image URL */
-            background-size: cover;
-            background-position: center;
+            position: relative;
         }
 
-        .right {
-		 align-self: flex-end;
+        .slider {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            position: relative;
+        }
 
-	}
+        .slider img {
+            width: 100%;
+            height: 100%;
+            display: none;
+            object-fit: cover;
+        }
 
-    .tile {
-    width: calc(33.33% - 20px); /* Adjust the width and margin as needed */
-    margin: 10px;
-    border: 1px solid #ddd;
-    padding: 10px;
-    box-sizing: border-box;
-}
+        .prev-btn,
+        .next-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1;
+        }
 
+        .prev-btn {
+            left: 10px;
+            background-image: url('images/prev.svg');
+        }
 
-	
-	input{
-		width:400px;
-		border-color:#ddd;
-		border-radius:8px;
-	}
+        .next-btn {
+            right: 10px;
+            background-image: url('images/next.svg');
+        }
 
-	.auth-buttons {
+        .tile {
+            width: calc(33.33% - 20px);
+            margin: 10px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        input {
+            width: 400px;
+            border-color: #ddd;
+            border-radius: 8px;
+        }
+
+        .auth-buttons {
             display: flex;
             align-items: center;
         }
 
         .sign-up-btn {
-            background-color: #f90; /* Change the color as desired */
+            background-color: #f90;
             color: #fff;
             padding: 10px 20px;
-		text-decoration: none;
+            text-decoration: none;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-	    margin-right:10px;
-	    margin-left:10px;
+            margin-right: 10px;
+            margin-left: 10px;
         }
 
         .login-btn {
             background-color: transparent;
             color: #fff;
             border: 2px solid #fff;
-		text-decoration: none;
+            text-decoration: none;
             padding: 8px 16px;
             margin-left: 10px;
             border-radius: 5px;
             cursor: pointer;
-	   
         }
 
-	.login-btn:hover {
-		 background-color: #f90;
-		border: 2px solid #f90;
-	}
+        .login-btn:hover {
+            background-color: #f90;
+            border: 2px solid #f90;
+        }
 
-	.showcase {
-    width: 100%; /* Change this to 80% to match the main content width */
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
+        .showcase {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
 
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            cursor: pointer;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+        }
+
+        .dark-mode-toggle .moon,
+        .dark-mode-toggle .sun {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-size: cover;
+        }
+
+        .dark-mode-toggle .moon {
+            background-image: url('images/moon.svg');
+        }
+
+        .dark-mode-toggle .sun {
+            background-image: url('images/sun.svg');
+        }
+
+        .dark-mode {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+
+        .dark-mode .tile {
+            background-color: #2d2d2d;
+            color: #ffffff;
+        }
+
+        .dark-mode .image-section {
+            background-color: #000000;
+        }
+
+        .dark-mode nav a {
+            color: #ffffff;
+        }
     </style>
 </head>
-<body>
+<body class="">
 
 <header>
-	<a href="home.html">
-	<img src="images/amazonLogo.png" alt="Amazon"></a>
-	<div class="auth-buttons">
-	
+    <a href="basicWEBPAGE.html">
+        <img src="images/amazonLogo.png" alt="Amazon">
+    </a>
+    <div class="auth-buttons">
         <a href="signUP.html" class="login-btn">Login</a>
-	<a href="signUP.html" class="sign-up-btn">Sign Up</a>
-	<div>
+        <a href="signUP.html" class="sign-up-btn">Sign Up</a>
+    </div>
+    
 </header>
 
 <nav>
     <div>
-    <a href="home.html">Home</a>
-    <a href="#">Deals</a>
-    <a href="#">My Cart</a>
+        <a href="#">Home</a>
+        <a href="#">Deals</a>
+        <a href="#">My Cart</a>
     </div>
     <div class="search-bar">
         <label for="Search">Search</label>
-  	<input type="text" id="Search" placeholder="Search for Products, Brands and More" name="Search">
-  
+        <input type="text" id="Search" placeholder="Search for Products, Brands and More" name="Search">
     </div>
-
-  <div class="right" >
+    <div class="right">
         <a href="#">Account Info</a>
         <a href="my_orders.html">My Orders</a>
         <a href="#">Contact Us</a>
     </div>
-
-
-
-
-
 </nav>
 
 <div class="main-content">
 
-    <div class="image-section"></div>
+    <div class="image-section">
+        <div class="slider">
+            <img src="images/slide1.jpg" alt="Slide 1">
+            <img src="images/slide2.jpg" alt="Slide 2">
+            <img src="images/slide3.jpg" alt="Slide 3">
+        </div>
+        <button class="prev-btn"><</button>
+        <button class="next-btn">></button>
+    </div>
+
     <section class="showcase">
-    <div class="tile">
-        <h2>Gaming accessories</h2>
-     
-        <img src="images/cat1.jpg" alt="Category 1 Image">
-    </div>
+        <div class="tile">
+            <h2>Gaming accessories</h2>
+            <img src="images/cat1.jpg" alt="Category 1 Image">
+        </div>
 
-    <div class="tile">
-        <h2>New year, new supplies</h2>
-       
-        <img src="images/cat2.jpg" alt="Category 2 Image"> 
-    </div>
+        <div class="tile">
+            <h2>New year, new supplies</h2>
+            <img src="images/cat2.jpg" alt="Category 2 Image">
+        </div>
 
-    <div class="tile">
-        <h2>Deals in PCs</h2>
-     
-        <img src="images/cat3.jpg" alt="Category 3 Image"> 
-    </div>
+        <div class="tile">
+            <h2>Deals in PCs</h2>
+            <img src="images/cat3.jpg" alt="Category 3 Image">
+        </div>
 
-    <div class="tile">
-        <h2>Refresh your space</h2>
-     
-        <img src="images/cat4.jpg" alt="Category 1 Image">
-    </div>
+        <div class="tile">
+            <h2>Refresh your space</h2>
+            <img src="images/cat4.jpg" alt="Category 1 Image">
+        </div>
 
-    <div class="tile">
-        <h2>Handpicked music & audio</h2>
-       
-        <img src="images/cat5.jpg" alt="Category 2 Image"> 
-    </div>
+        <div class="tile">
+            <h2>Handpicked music & audio</h2>
+            <img src="images/cat5.jpg" alt="Category 2 Image">
+        </div>
 
-    <div class="tile">
-        <h2>Best Sellers in Sports & Outdoors</h2>
-     
-        <img src="images/cat6.jpg" alt="Category 3 Image"> 
-    </div>
+        <div class="tile">
+            <h2>Best Sellers in Sports & Outdoors</h2>
+            <img src="images/cat6.jpg" alt="Category 3 Image">
+        </div>
     </section>
-
-
 
 </div>
 
 <footer>
     
 </footer>
+<div class="dark-mode-toggle" id="dark-mode-toggle">
+    <div class="moon"></div>
+    <div class="sun"></div>
+</div>
 
-</body>
-</html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+      const slider = $('.slider');
+      const images = slider.find('img');
+      let currentIndex = 0;
+    
+      // Function to show the current slide
+      const showSlide = (index) => {
+        images.hide().eq(index).fadeIn();
+      };
+    
+      // Show the initial slide
+      showSlide(currentIndex);
+    
+      // Event listener for next button
+      $('.next-btn').click(function() {
+        currentIndex = (currentIndex + 1) % images.length;
+        showSlide(currentIndex);
+      });
+    
+      // Event listener for previous button
+      $('.prev-btn').click(function() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showSlide(currentIndex);
+      });
+    });
+
+    $('#dark-mode-toggle').click(function () {
+        $('body').toggleClass('dark-mode');
+    });
+    </script>
